@@ -26,6 +26,31 @@ body {
   margin: 10px;
 }
 
+.cardBox {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(100px, 300px));
+  gap: 20px;
+  padding: 15px;
+}
+
+.bookCard {
+  display: grid;
+  grid-template-rows: repeat(3, 30px);
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+  gap: 10px;
+  padding: 10px;
+}
+
+.bookCardText {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+
 .footer {
   display: flex;
   text-align: center;
