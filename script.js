@@ -23,7 +23,7 @@ function displayBooks() {
     cardBox.appendChild(newDiv);
     const newTitle = document.createElement("div");
     newTitle.classList.add("bookCardText");
-    newTitle.textContent = myLibrary[i].title;
+    newTitle.textContent = '"' + myLibrary[i].title + '"';
     newDiv.appendChild(newTitle);
     const newAuthor = document.createElement("div");
     newAuthor.classList.add("bookCardText");
@@ -33,6 +33,14 @@ function displayBooks() {
     newPages.classList.add("bookCardText");
     newPages.textContent = myLibrary[i].pages + " pages";
     newDiv.appendChild(newPages);
+    const readButton = document.createElement("button");
+    readButton.classList.add("bookCardText");
+    readButton.textContent = myLibrary[i].read;
+    newDiv.appendChild(readButton);
+    const removeButton = document.createElement("button");
+    removeButton.classList.add("bookCardText");
+    removeButton.textContent = "Remove";
+    newDiv.appendChild(removeButton);
   }
 }
 
@@ -56,7 +64,4 @@ addBookToLibrary(theHobbit);
 addBookToLibrary(harryPotterAndTheSorcerersStone);
 addBookToLibrary(warAndPeace);
 addBookToLibrary(crimeAndPunishment);
-console.log(myLibrary[0].info());
-console.log(myLibrary[1].info());
-console.log(myLibrary[2].info());
 displayBooks();
