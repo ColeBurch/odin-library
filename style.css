@@ -37,7 +37,7 @@ body {
 .bookCard {
   display: grid;
   grid-template-rows: repeat(5, 30px);
-  justify-content: center;
+  justify-items: center;
   align-items: center;
   background-color: white;
   border-radius: 20px;
@@ -49,6 +49,10 @@ body {
   text-align: center;
   font-size: 18px;
   font-weight: 500;
+}
+
+.cardButton {
+  width: 105px;
 }
 
 .footer {

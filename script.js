@@ -34,11 +34,11 @@ function displayBooks() {
     newPages.textContent = myLibrary[i].pages + " pages";
     newDiv.appendChild(newPages);
     const readButton = document.createElement("button");
-    readButton.classList.add("bookCardText");
+    readButton.classList.add("bookCardText", "cardButton");
     readButton.textContent = myLibrary[i].read;
     newDiv.appendChild(readButton);
     const removeButton = document.createElement("button");
-    removeButton.classList.add("bookCardText");
+    removeButton.classList.add("bookCardText", "cardButton");
     removeButton.textContent = "Remove";
     newDiv.appendChild(removeButton);
   }
