@@ -45,6 +45,18 @@ function displayBooks() {
 }
 
 const cardBox = document.querySelector(".cardBox");
+const addBookForm = document.querySelector(".addBookForm");
+const overlay = document.querySelector(".overlay");
+const addBookButton = document.querySelector(".addBook");
+
+addBookButton.addEventListener("click", () => {
+  addBookForm.classList.add("active");
+  overlay.classList.add("active");
+  overlay.addEventListener("click", () => {
+    addBookForm.classList.remove("active");
+    overlay.classList.remove("active");
+  });
+});
 
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "read");
 const harryPotterAndTheSorcerersStone = new Book(
