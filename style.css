@@ -28,7 +28,7 @@ body {
 
 .cardBox {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-template-rows: repeat(auto-fit, minmax(100px, 240px));
   gap: 20px;
   padding: 15px;

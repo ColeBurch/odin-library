@@ -44,6 +44,22 @@ function displayBooks() {
   }
 }
 
+function handleSubmit(e) {
+  e.preventDefault();
+  let title = document.getElementById("title").value;
+  let author = document.getElementById("author").value;
+  let bookLength = document.getElementById("pages").value;
+  let readStatus = document.getElementById("readStatus").checked;
+  if (readStatus) {
+    readStatus = "read";
+  } else {
+    readStatus = "not read";
+  }
+  let newBook = new Book(title, author, bookLength, readStatus);
+  addBookToLibrary(newBook);
+  displayBooks();
+}
+
 const cardBox = document.querySelector(".cardBox");
 const addBookForm = document.querySelector(".addBookForm");
 const overlay = document.querySelector(".overlay");
@@ -57,6 +73,8 @@ addBookButton.addEventListener("click", () => {
     overlay.classList.remove("active");
   });
 });
+
+addBookForm.addEventListener("submit", handleSubmit);
 
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "read");
 const harryPotterAndTheSorcerersStone = new Book(
