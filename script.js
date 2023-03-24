@@ -109,23 +109,3 @@ addBookButton.addEventListener("click", () => {
 });
 
 addBookForm.addEventListener("submit", handleSubmit);
-
-const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "read");
-const harryPotterAndTheSorcerersStone = new Book(
-  "Harry Potter and the Sorcerer's Stone",
-  "J.K. Rowling",
-  309,
-  "not read"
-);
-const warAndPeace = new Book("War and Peace", "Leo Tolstoy", 1215, "not read");
-const crimeAndPunishment = new Book(
-  "Crime and Punishment",
-  "Fyodor Dostoevsky",
-  430,
-  "read"
-);
-addBookToLibrary(theHobbit);
-addBookToLibrary(harryPotterAndTheSorcerersStone);
-addBookToLibrary(warAndPeace);
-addBookToLibrary(crimeAndPunishment);
-displayBooks();
