@@ -38,10 +38,19 @@ function displayBooks() {
     readButton.textContent = myLibrary[i].read;
     newDiv.appendChild(readButton);
     const removeButton = document.createElement("button");
-    removeButton.classList.add("bookCardText", "cardButton");
+    removeButton.classList.add("bookCardText", "cardButton", "remove");
+    removeButton.id = i;
     removeButton.textContent = "Remove";
     newDiv.appendChild(removeButton);
   }
+  let removeButtons = document.querySelectorAll(".remove");
+  removeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      let buttonId = button.id;
+      myLibrary.splice(buttonId, 1);
+      displayBooks();
+    });
+  });
 }
 
 function handleSubmit(e) {
@@ -57,6 +66,7 @@ function handleSubmit(e) {
   }
   let newBook = new Book(title, author, bookLength, readStatus);
   addBookToLibrary(newBook);
+  console.log(myLibrary);
   displayBooks();
 }
 
