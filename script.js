@@ -19,7 +19,6 @@ function displayBooks() {
   for (let i = 0; i < myLibrary.length; i++) {
     const newDiv = document.createElement("div");
     newDiv.classList.add("bookCard");
-    newDiv.id = i;
     cardBox.appendChild(newDiv);
     const newTitle = document.createElement("div");
     newTitle.classList.add("bookCardText");
@@ -34,8 +33,14 @@ function displayBooks() {
     newPages.textContent = myLibrary[i].pages + " pages";
     newDiv.appendChild(newPages);
     const readButton = document.createElement("button");
-    readButton.classList.add("bookCardText", "cardButton");
+    readButton.classList.add("bookCardText", "cardButton", "readButton");
+    readButton.id = i;
     readButton.textContent = myLibrary[i].read;
+    if (readButton.textContent == "read") {
+      readButton.classList.add("read");
+    } else {
+      readButton.classList.add("notRead");
+    }
     newDiv.appendChild(readButton);
     const removeButton = document.createElement("button");
     removeButton.classList.add("bookCardText", "cardButton", "remove");
@@ -49,6 +54,23 @@ function displayBooks() {
       let buttonId = button.id;
       myLibrary.splice(buttonId, 1);
       displayBooks();
+    });
+  });
+  let readButtons = document.querySelectorAll(".readButton");
+  readButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      let buttonId = button.id;
+      if (button.textContent == "read") {
+        button.textContent = "not Read";
+        myLibrary[buttonId].read = "not read";
+        button.classList.remove("read");
+        button.classList.add("notRead");
+      } else {
+        button.textContent = "read";
+        myLibrary[buttonId].read = "read";
+        button.classList.remove("notRead");
+        button.classList.add("read");
+      }
     });
   });
 }
@@ -68,6 +90,8 @@ function handleSubmit(e) {
   addBookToLibrary(newBook);
   console.log(myLibrary);
   displayBooks();
+  addBookForm.classList.remove("active");
+  overlay.classList.remove("active");
 }
 
 const cardBox = document.querySelector(".cardBox");

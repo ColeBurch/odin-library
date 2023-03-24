@@ -53,6 +53,15 @@ body {
 
 .cardButton {
   width: 105px;
+  border-radius: 8px;
+}
+
+.read {
+  background-color: green;
+}
+
+.notRead {
+  background-color: red;
 }
 
 .footer {
